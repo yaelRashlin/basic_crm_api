@@ -1,0 +1,14 @@
+# Docker-specific configuration for Flask Server
+server:
+  host: "0.0.0.0"  # Bind to all interfaces in container
+  port: 5000
+  debug: false
+  threaded: true
+
+database:
+  # Use persistent volume mount for SQLite in production
+  path: "/app/data/users.db"
+  
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

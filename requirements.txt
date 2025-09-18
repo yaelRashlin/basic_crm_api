@@ -1,0 +1,12 @@
+# Basic Flask Server Requirements
+Flask==3.1.1
+PyYAML==6.0.2
+
+# Database and Serialization
+SQLAlchemy==2.0.43
+marshmallow==3.23.1
+
+# Testing Dependencies
+pytest==7.4.4
+pytest-cov==4.1.0
+requests==2.31.0

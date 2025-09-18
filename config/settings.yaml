@@ -1,0 +1,63 @@
+# User Management Flask Server Configuration
+
+# Server Configuration
+server:
+  host: "0.0.0.0"
+  port: 5000
+  debug: true
+  threaded: true
+
+# Application Configuration
+app:
+  name: "User Management Flask Server"
+  version: "1.0.0"
+  description: "A Flask server for user management with Israeli ID validation"
+
+# Database Configuration
+database:
+  type: "sqlite"
+  filename: "users.db"
+  echo: false  # Set to true to log SQL queries
+  pool_size: 5
+  max_overflow: 10
+  connect_args:
+    check_same_thread: false  # Required for SQLite with threading
+
+# Validation Configuration
+validation:
+  israeli_id:
+    length: 9
+    checksum_enabled: true
+  
+  phone:
+    min_length: 8
+    max_length: 16
+    require_plus: true
+  
+  name:
+    max_length: 100
+    allow_empty: false
+  
+  address:
+    max_length: 200
+    allow_empty: false
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  enable_request_logging: true
+
+# Development Configuration
+development:
+  auto_reload: true
+  show_endpoints_on_start: true
+  enable_debug_toolbar: false
+
+# Production Configuration (override in production.yaml)
+production:
+  debug: false
+  host: "127.0.0.1"
+  port: 8080
+  logging:
+    level: "WARNING"
